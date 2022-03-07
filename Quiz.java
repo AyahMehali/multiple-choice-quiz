@@ -8,11 +8,14 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 public class Quiz extends JFrame {
 
 	private JPanel contentPane;
 	int counter = 0;
+	private final Action action = new SwingAction();
 	/**
 	 * Launch the application.
 	 */
@@ -34,14 +37,14 @@ public class Quiz extends JFrame {
 	 */
 	public Quiz() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 817, 460);
+		setBounds(100, 100, 424, 314);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel start = new JPanel();
-		start.setBounds(39, 11, 307, 225);
+		start.setBounds(39, 11, 307, 213);
 		contentPane.add(start);
 		start.setLayout(null);
 		
@@ -64,7 +67,7 @@ public class Quiz extends JFrame {
 		start.add(lblNewLabel_3);
 		
 		JPanel first = new JPanel();
-		first.setBounds(39, 11, 307, 225);
+		first.setBounds(39, 11, 307, 213);
 		contentPane.add(first);
 		first.setLayout(null);
 		
@@ -74,7 +77,7 @@ public class Quiz extends JFrame {
 		
 		
 		JPanel second = new JPanel();
-		second.setBounds(39, 11, 307, 225);
+		second.setBounds(39, 11, 307, 213);
 		contentPane.add(second);
 		second.setLayout(null);
 		
@@ -85,7 +88,7 @@ public class Quiz extends JFrame {
 		
 		
 		JPanel third = new JPanel();
-		third.setBounds(39, 11, 307, 225);
+		third.setBounds(39, 11, 307, 213);
 		contentPane.add(third);
 		third.setLayout(null);
 		
@@ -96,7 +99,7 @@ public class Quiz extends JFrame {
 		
 		
 		JPanel fourth = new JPanel();
-		fourth.setBounds(39, 11, 307, 225);
+		fourth.setBounds(39, 11, 307, 213);
 		contentPane.add(fourth);
 		fourth.setLayout(null);
 		
@@ -107,7 +110,7 @@ public class Quiz extends JFrame {
 		
 		
 		JPanel fifth = new JPanel();
-		fifth.setBounds(39, 11, 307, 225);
+		fifth.setBounds(39, 11, 307, 213);
 		contentPane.add(fifth);
 		fifth.setLayout(null);
 		
@@ -118,78 +121,131 @@ public class Quiz extends JFrame {
 		
 		
 		JPanel score = new JPanel();
-		score.setBounds(39, 11, 307, 225);
+		score.setBounds(39, 11, 307, 213);
 		contentPane.add(score);
 		score.setLayout(null);
 		
 		JButton btnBTSQuiz = new JButton("Start!");
-		start.setVisible(false);
-		first.setVisible(true);
+		btnBTSQuiz.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				start.setVisible(false);
+				first.setVisible(true);
+			}
+		});
+		
 		btnBTSQuiz.setBounds(99, 134, 89, 23);
 		start.add(btnBTSQuiz);
 		
 		JButton btnJungkookF = new JButton("Maknae on top");
-		first.setVisible(false);
-		second.setVisible(true);
+		btnJungkookF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				first.setVisible(false);
+				second.setVisible(true);
+			}
+		});
 		btnJungkookF.setBounds(10, 98, 112, 23);
 		first.add(btnJungkookF);
 		
 		JButton btnJungkookT = new JButton("Golden Maknae");
-		counter++;
-		first.setVisible(false);
-		second.setVisible(true);
+		btnJungkookT.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter++;
+				first.setVisible(false);
+				second.setVisible(true);
+			}
+		});
 		btnJungkookT.setBounds(163, 98, 105, 23);
 		first.add(btnJungkookT);
 		
 		JButton btnRMF = new JButton("Dancer");
-		second.setVisible(false);
-		third.setVisible(true);
+		btnRMF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				second.setVisible(false);
+				third.setVisible(true);
+			}
+		});
+		
 		btnRMF.setBounds(10, 73, 89, 23);
 		second.add(btnRMF);
 		
 		JButton btnRMT = new JButton("Leader");
-		counter++;
-		second.setVisible(false);
-		third.setVisible(true);
+		btnRMT.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter++;
+				second.setVisible(false);
+				third.setVisible(true);
+			}
+		});
+		
 		btnRMT.setBounds(188, 73, 89, 23);
 		second.add(btnRMT);
 		
 		JButton btnSugaF = new JButton("Boba");
-		third.setVisible(false);
-		fourth.setVisible(true);
+		btnSugaF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				third.setVisible(false);
+				fourth.setVisible(true);
+			}
+		});
+		
 		btnSugaF.setBounds(21, 73, 89, 23);
 		third.add(btnSugaF);
 		
 		JButton btnSugaT = new JButton("Iced Americano");
-		counter++;
-		third.setVisible(false);
-		fourth.setVisible(true);
+		btnSugaT.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter++;
+				third.setVisible(false);
+				fourth.setVisible(true);
+			}
+		});
+		
 		btnSugaT.setBounds(158, 73, 121, 23);
 		third.add(btnSugaT);
 		
 		JButton btnJiminF = new JButton("ChimChim");
-		fourth.setVisible(false);
-		fifth.setVisible(true);
+		btnJiminF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fourth.setVisible(false);
+				fifth.setVisible(true);
+			}
+		});
+		
 		btnJiminF.setBounds(10, 93, 89, 23);
 		fourth.add(btnJiminF);
 		
 		JButton btnJiminT = new JButton("Chimmy");
-		counter++;
-		fourth.setVisible(false);
-		fifth.setVisible(true);
+		btnJiminT.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter++;
+				fourth.setVisible(false);
+				fifth.setVisible(true);
+			}
+		});
+		
 		btnJiminT.setBounds(208, 93, 89, 23);
 		fourth.add(btnJiminT);
 		
 		JButton btnBTSF = new JButton("Apple Inc.");
-		fifth.setVisible(false);
-		score.setVisible(true);
+		btnBTSF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fifth.setVisible(false);
+				score.setVisible(true);
+			}
+		});
+		
 		btnBTSF.setBounds(25, 92, 89, 23);
 		fifth.add(btnBTSF);
 		
 		JButton btnBTST = new JButton("Samsung Electronics");
-		counter++;
-		fifth.setVisible(false);
-		score.setVisible(true);
+		btnBTST.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				counter++;
+				fifth.setVisible(false);
+				score.setVisible(true);
+			}
+		});
+		
 		btnBTST.setBounds(160, 92, 137, 23);
 		fifth.add(btnBTST);
 		
@@ -199,11 +255,34 @@ public class Quiz extends JFrame {
 		score.add(lblScore);
 		
 		JButton btnScore = new JButton("Score");
+		btnScore.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				lblScore.setText(String.valueOf(counter));
+				
+			}
+		});
 		btnScore.setBounds(103, 52, 89, 23);
 		score.add(btnScore);
 		
-		JLabel lblComment = new JLabel("Comment");
+		JLabel lblComment = new JLabel("[Comment]");
 		lblComment.setBounds(127, 144, 46, 14);
 		score.add(lblComment);
+		
+		first.setVisible(false);
+		second.setVisible(false);
+		third.setVisible(false);
+		fourth.setVisible(false);
+		fifth.setVisible(false);
+		score.setVisible(false);
+		start.setVisible(true);
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }
